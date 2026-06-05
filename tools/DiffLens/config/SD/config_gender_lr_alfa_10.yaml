@@ -1,0 +1,14 @@
+model_name: "Stable Diffusion v1.5"
+
+train_sae:
+  train: False
+
+train_h_classifier:
+  train: False
+
+locate:
+  locate: False
+
+bias_mitigation:
+  generate: True
+  generate_config_path: tools/DiffLens/config/SD/bias_mitigation/lr/generate_config_gender_lr_alfa_10.yaml

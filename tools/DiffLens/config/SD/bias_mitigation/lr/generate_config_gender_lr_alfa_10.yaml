@@ -1,0 +1,36 @@
+generate_seed: 0
+target_attr: age
+top_k: 0
+top_k_list: "10_0_30"
+edit_ratios: "30.0_0.0_50.0"
+feature_saved_path: ./save/
+kernel_size: 8
+num_samples: 500
+
+use_sae: false
+
+ae_k: 1024
+ae_expansion_factor: 8
+
+sae_path: ./sae-ckpts # Download from google drive
+edit_method: add_all_probability
+
+sample_dir: "samples/model_results_gender_lr_alfa_15_attn1_np/splitted_images/"
+model_path: stable-diffusion-v1-5/stable-diffusion-v1-5
+lr_models_path:
+  woman:
+    alfa: -15.0
+    path: "logreg_runs/attn1/woman_man_prompts_neutral/models"
+    layers:
+      - "mid_block.attentions.0.transformer_blocks.0.attn1"
+      - "up_blocks.1.attentions.0.transformer_blocks.0.attn1"
+      - "up_blocks.1.attentions.1.transformer_blocks.0.attn1"
+      # - "up_blocks.1.attentions.2.transformer_blocks.0.attn1"
+  man:
+    alfa: 15.0
+    path: "logreg_runs/attn1/woman_man_prompts_neutral/models"
+    layers:
+      - "mid_block.attentions.0.transformer_blocks.0.attn1"
+      - "up_blocks.1.attentions.0.transformer_blocks.0.attn1"
+      - "up_blocks.1.attentions.1.transformer_blocks.0.attn1"
+      # - "up_blocks.1.attentions.2.transformer_blocks.0.attn1"
